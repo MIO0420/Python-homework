@@ -10,3 +10,15 @@
 7.交作業表單 https://forms.gle/UiZr2DoVM9W34jPF8
 ```
 ## 第一次作業繳交
+```
+第一題
+印出99乘法表
+將結果橫著印
+```
+```python
+範例
+for i in range(3):
+    for j in range(4):
+        print(f'{i} * {j} = {i * j}')
+
+```
