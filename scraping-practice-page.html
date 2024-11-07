@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python爬蟲練習網頁</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .product {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 10px;
+            display: inline-block;
+            width: 200px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        .news-item {
+            margin: 20px 0;
+            padding: 10px;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <h1>電商網站示例</h1>
+    
+    <!-- 導航菜單 - 練習選擇器 -->
+    <nav>
+        <ul>
+            <li><a href="#products">商品列表</a></li>
+            <li><a href="#news">最新消息</a></li>
+            <li><a href="#prices">價格表</a></li>
+        </ul>
+    </nav>
+
+    <!-- 商品區 - 練習處理重複元素 -->
+    <section id="products">
+        <h2>熱門商品</h2>
+        <div class="product">
+            <img src="/api/placeholder/150/150" alt="商品1" />
+            <h3>商品A</h3>
+            <p class="price">NT$ 1,299</p>
+            <p class="stock" data-quantity="50">庫存: 50</p>
+        </div>
+        <div class="product">
+            <img src="/api/placeholder/150/150" alt="商品2" />
+            <h3>商品B</h3>
+            <p class="price">NT$ 2,499</p>
+            <p class="stock" data-quantity="30">庫存: 30</p>
+        </div>
+        <div class="product">
+            <img src="/api/placeholder/150/150" alt="商品3" />
+            <h3>商品C</h3>
+            <p class="price">NT$ 999</p>
+            <p class="stock" data-quantity="0">售罄</p>
+        </div>
+    </section>
+
+    <!-- 新聞區 - 練習提取文本和日期 -->
+    <section id="news">
+        <h2>最新消息</h2>
+        <div class="news-item">
+            <h3>新品上市公告</h3>
+            <p class="date">2024-10-23</p>
+            <p class="content">全新商品D即將上市，敬請期待！</p>
+        </div>
+        <div class="news-item">
+            <h3>特價活動開跑</h3>
+            <p class="date">2024-10-22</p>
+            <p class="content">所有商品全面9折，特價期間：10/22-10/31</p>
+        </div>
+    </section>
+
+    <!-- 價格表 - 練習表格爬取 -->
+    <section id="prices">
+        <h2>價格一覽表</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>商品名稱</th>
+                    <th>定價</th>
+                    <th>特價</th>
+                    <th>折扣</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>商品A</td>
+                    <td>1,499</td>
+                    <td>1,299</td>
+                    <td>87%</td>
+                </tr>
+                <tr>
+                    <td>商品B</td>
+                    <td>2,999</td>
+                    <td>2,499</td>
+                    <td>83%</td>
+                </tr>
+                <tr>
+                    <td>商品C</td>
+                    <td>1,199</td>
+                    <td>999</td>
+                    <td>83%</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- 表單 - 練習表單元素爬取 -->
+    <section id="contact">
+        <h2>聯絡我們</h2>
+        <form action="/submit" method="POST">
+            <div>
+                <label for="name">姓名：</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div>
+                <label for="email">Email：</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div>
+                <label for="product">商品選擇：</label>
+                <select id="product" name="product">
+                    <option value="A">商品A</option>
+                    <option value="B">商品B</option>
+                    <option value="C">商品C</option>
+                </select>
+            </div>
+            <div>
+                <label for="message">訊息：</label>
+                <textarea id="message" name="message"></textarea>
+            </div>
+            <button type="submit">送出</button>
+        </form>
+    </section>
+
+    <!-- 隱藏元素 - 練習特殊元素處理 -->
+    <div style="display: none;" class="hidden-content">
+        <p>這是隱藏的內容</p>
+        <p data-special="true">特殊資訊</p>
+    </div>
+</body>
+</html>
